@@ -71,6 +71,25 @@ Vagrant.configure("2") do |config|
 	      mkdir -p ~root/.ssh
               cp ~vagrant/.ssh/auth* ~root/.ssh
 	      yum install -y mdadm smartmontools hdparm gdisk nano
+  	      echo "Creatind RAID 6......."
+              sleep 1s
+	      sudo lshw -short | grep disk;
+	      sleep 1s
+	      sudo fdisk -l;
+	      sleep 1s
+	      mdadm --zero-superblock --force --verbose /dev/sd{b,c,d,e,f} &&
+	      echo "###########################################" &&
+	      yes y | mdadm --create --verbose /dev/md0 -l 6 -n 5 /dev/sd{b,c,d,e,f} &&
+	      echo "Done."
+	      sleep 1s
+	      echo "Checking RAID..."
+	      sleep 1s
+	      cat /proc/mdstat;
+	      echo "######################################"
+	      mdadm -D /dev/md0;
+	      echo "Exit..."
+	      sleep 1s
+ 	      
   	  SHELL
 
       end
