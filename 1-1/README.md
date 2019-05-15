@@ -21,8 +21,10 @@ mv linux-4.19.37 linux
 
 yum -y install openssl-devel  
 cp /boot/config-3.10.0-957.10.1.el7.x86_64 /usr/src/linux/.core  
-yes "" | make oldconfig) # I choosed all kernel options because I got this error https://access.redhat.com/solutions/2515741 in the other case  
-make -j4 && make modules_install && make -j4 install # -j4 allow 4 jobs at once. Look at make --help
+yes "" | make oldconfig) 
+# I choosed all kernel options because I got this error https://access.redhat.com/solutions/2515741 in the other case  
+make -j4 && make modules_install && make -j4 install 
+#-j4 allow 4 jobs at once. Look at make --help
 
 ### 5. make new kernel as default
 
