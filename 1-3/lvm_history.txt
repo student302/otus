@@ -1,0 +1,321 @@
+lvmdiskscan
+lsblk
+vgdisplay
+pvdisplay
+lsblk
+pvcreate /dev/sdb
+vgcreate otus /dev/sdb
+lsblk
+vgdisplay
+lvdisplay
+lvdisplay
+lvdisplay -h
+lvdisplay -C
+lvdisplay -C\c
+lvdisplay -c
+lvdisplay -C
+lvcreate -l+80%FREE -n test otus
+lvdisplay -C
+vgdisplay
+vgdisplay -c
+vgdisplay otus
+vgdisplay -v otus | grep 'PV NAME'
+pvdisplay -v otus
+pvdisplay -v otus | grep 'PV NAME'
+vgdisplay -v otus
+man -k grep
+man grep
+grep --help
+mandb
+mandb
+grep --help
+pvdisplay -v otus | grep -i 'PV NAME'
+vgdisplay -v otus | grep -i 'PV NAME'
+lvmdisplay
+lvdisplay
+lvdisplay
+lvdisplay /dev/otus/test 
+vgs
+lvs
+lvcreate -L100M -n small otus
+lvs
+lvs | grep LV
+lvs -C
+man lvs
+lvs --help
+lvs LV
+lvs VG
+lvs -O VG
+vgdis
+lvs -O
+lvs -o
+lvs
+lvdisplay /dev/otus/
+psdisplay
+pvdisplay
+netstat
+yum install net-tools
+netstat
+netstat -at
+netstat -au
+w
+lvs
+cat /dev/oldmem .
+cat /dev/oldmem
+mkfs.ext4 /dev/otus/test 
+ll
+mkdir /data
+mount /dev/otus/test /data/
+mount | grep data
+lvdisplay 
+lvs
+mount
+mount /dev/otus/test /data/
+mount | grep data
+cd /data/
+ll
+cd lost+found/
+ll
+cd ..
+pvs
+lsblk
+pvdisplay 
+pvs
+lsblk
+pvcreate  /dev/sdc
+vgs
+vgextend otus /dev/sdc
+vgs
+vgdisplay -v otus  | grep -i 'PV Name'
+vgs
+man dd
+mandb
+man dd
+man man
+man
+man ls
+export MANPATH=/usr/share/man/
+man ls
+export MANPATH= /usr/share/man/
+export MANPATH=/usr/share/man/
+man ls
+yum install man-pages
+yum install man-db
+mandb
+man man
+man dd
+dd --help
+man jq
+jq --help
+jq
+yum info jq
+man yum
+man man
+info
+info --help
+apropos dd
+innnfo dd
+apropos dd
+info --help
+info info
+dd --help
+ll
+pwd
+dd if=/dev/zero of=/data/test.log bs=1M count=8000 status=progress
+df -Th /data/
+vgs
+lvs
+pvs
+man lvextend 
+lvextend --help
+lvextend -l+80%FREE /dev/otus/test 
+lvs
+vgs
+lvs
+df -Th /data/
+man resize2fs 
+resize2fs --help
+resize2fs 
+resize2fs --help
+resize2fs -help
+resize2fs
+man ma
+apropos resize2fs
+whatis
+whatis resize2fs
+man resize2fs 
+resize2fs /dev/otus/test 
+df -Th /data/
+uname -a
+cat /etc/*-release
+yum install man
+man ls
+yum install man man-pages man-db
+yum install manpages-posix
+manddb
+mandb
+umount /data/
+cd..
+cd..
+cd ..
+ll
+umount /data/
+cd /data/
+ll
+pwd
+top
+cd ..
+umount /data/
+lsof
+lsof /data/
+fuser
+man fuser
+fuser --help
+umount /data/
+cd ~
+ll
+lsof /data/
+lsof +f -- /data/
+yum install lsof
+man lsof
+lsof +f -- /data/
+kill 4474
+lsof +f -- /data/
+kill -9 4474
+lsof +f -- /data/
+umount /data/
+e2fsck -fy /dev/otus/test 
+resize2fs /dev/otus/test 10G
+lvreduce /dev/otus/test -L 10G
+history | grep mount
+mount /dev/otus/test /data/
+df -Th /data/
+lvs /dev/otus/test 
+ps -ef
+yum -y install pstree
+yum provides pstree
+pstree
+man pstree
+info /usr/bin/pstree
+man 2 SUID
+man 2
+man
+2
+man 2
+man 2 2
+man man
+ps -eo pid, tt, wchan
+ps
+ps -eo
+man ps
+exit
+exit
+lvs
+mount | grep test
+lvs
+lsblk
+df -Th /data/
+history
+lvs /dev/otus/test 
+lsblk
+mount | grep sda3
+mount | grep sda
+mount | grep Vol
+man vg
+exit
+lsblk
+date
+reboot
+lsblk
+lvremove /dev/otus/test 
+yes | lvremove /dev/otus/test 
+yes | lvremove /dev/otus/small 
+yes | vgremove /dev/otus/
+lsblk
+vgs
+vgremove otus 
+lsblk
+pvs
+pvremove /dev/sdb
+lsblk
+pvs
+lvs
+vgs
+pvcreate  /dev/sdb && vgcreate vg_root /dev/sdb && lvcreate -n lv_root -l+100%FREE /dev/vg_root
+lvs
+lsblk
+yes | mkfs.xfs /dev/vg_root/lv_root  && mount /dev/vg_root/lv_root 
+exit
+exit
+grub2-mkconfig -o /boot/grub2/grub.cfg
+ cd /boot
+for i in `ls initramfs-*img`; do dracut -v $i `echo $i|sed "s/initramfs-//g;s/.img//g"` --force; done
+nano /boot/grub2/grub.cfg
+reboot
+exit
+grub2-mkconfig -o /boot/grub2/grub.cfg
+cd /boot
+for i in `ls initramfs-*img`; do dracut -v $i `echo $i|sed "s/initramfs-//g;s/.img//g"` --force; done
+pvcreate /dev/sdc /dev/sdd
+vgcreate vg_var /dev/sdc /dev/sdd
+lvcreate -L 950M -m1 -n lv_var vg_var
+lsblk
+mkfs.ext4 /dev/vg_var/lv_var
+mount /dev/vg_var/lv_var /mnt
+cp -aR /var/* /mnt/
+ mkdir /tmp/oldvar && mv /var/* /tmp/oldvar
+umount /mnt
+ mount /dev/vg_var/lv_var /var
+echo "`blkid | grep var: | awk '{print $2}'` /var ext4 defaults 0 0" >> /etc/fstab
+lsblk
+reboot
+exit
+lsblk
+lvremove /dev/vg_root/lv_root
+ vgremove /dev/vg_root
+pvremove /dev/sdb
+lvcreate -n LogVol_Home -L 2G /dev/VolGroup00
+mkfs.xfs /dev/VolGroup00/LogVol_Home
+mount /dev/VolGroup00/LogVol_Home /mnt/
+cp -aR /home/* /mnt/ 
+ rm -rf /home/*
+umount /mnt
+mount /dev/VolGroup00/LogVol_Home /home/
+echo "`blkid | grep Home | awk '{print $2}'` /home xfs defaults 0 0" >> /etc/fstab
+touch /home/file{1..20}
+lvcreate -L 100MB -s -n home_snap /dev/VolGroup00/LogVol_Home
+rm -f /home/file{11..20}
+umount /home
+ lvconvert --merge /dev/VolGroup00/home_snap
+ mount /home
+lsblk
+pwd
+lsblk | echo >> lvm_hometask.txt
+touch lvm_hometask.txt
+touch ./lvm_hometask.txt
+pwd
+touch lvm_hometask
+touch 123
+touch /home/vagrant/lvm_hometask.txt
+lsblk | echo >> lvm_hometask.txt
+lsblk | echo >> /home/vagrant/lvm_hometask.txt
+cat /home/vagrant/lvm_hometask.txt
+lsblk | echo > lvm_hometask.txt
+lsblk | echo > lvm_hometask.txt
+lsblk | echo >> /home/vagrant/lvm_hometask.txt
+cat /home/vagrant/lvm_hometask.txt
+nano /home/vagrant/lvm_hometask.txt
+lsblk | echo /home/vagrant/lvm_hometask.txt
+for i in `lsblk` | echo $i /home/vagrant/lvm_hometask.txt
+for i in `lsblk`;do  echo $i /home/vagrant/lvm_hometask.txt; 
+for i in `lsblk`;do  echo $i >> /home/vagrant/lvm_hometask.txt; 
+for i in `lsblk`;do  echo $i >> /home/vagrant/lvm_hometask.txt; done
+cat /home/vagrant/lvm_hometask.txt
+lsblk
+history | 
+echo >> /home/vagrant/lvm_hometask2.txt <<< history
+cat /home/vagrant/lvm_hometask2.txt
+for i in `history`;do  echo $i > /home/vagrant/lvm_hometask.txt; done
+cat /home/vagrant/lvm_hometask.txt
+for i in `history`;do  echo $i >> /home/vagrant/lvm_hometask.txt; done
+
