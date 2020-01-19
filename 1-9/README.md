@@ -1,5 +1,5 @@
 Docker Image
-
+1.
    1.Log to  Dockerhub 
    2. Create image -  docker build -t user_dockerhub/nginx_hw_otus:1.0 .
    3. push to the regestry - docker push user_dockerhub/nginx_hw_otus:1.0
@@ -18,6 +18,11 @@ Docker Image
 
     Thank you for using nginx.</i>
 
+
+My docker image: https://hub.docker.com/r/student302/nginx_otus_hw9
  
 
+2. Docker container has a writable layer that is only available if the container is running but the image  has read-only layers.
+
+3. Yes. https://github.com/moul/docker-kernel-builder
 
