@@ -5,7 +5,7 @@ Docker Image
    3. push to the regestry - docker push user_dockerhub/nginx_hw_otus:1.0
    4. check you image - docker run -d --rm -p 80:80 user_dockerhub/nginx_hw_otus:1.0
     
-	 <code>curl localhost:80 </code>
+	<code>curl localhost:80 </code>
 	 
     <title>Welcome to nginx!</title> <style> body { width: 35em; margin: 0 auto; font-family: Tahoma, Verdana, Arial, sans-serif; } </style>
 
