@@ -1,0 +1,35 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.provider "virtualbox"
+  
+  config.vm.define "borg-server" do |s|
+    s.vm.hostname = 'borg-server'
+    s.vm.box = "centos/7"
+    s.vm.network :private_network, ip: "10.0.0.10"
+    s.vm.provision "shell", inline: <<-SHELL
+    sudo useradd -m borg
+    sudo mkdir ~borg/.ssh
+    SHELL
+  end
+
+  config.vm.define "borg-client1" do |s|
+    s.vm.hostname = 'borg-client1'
+    s.vm.box = "centos/7"
+    s.vm.network :private_network, ip: "10.0.0.11"
+    s.vm.provision "shell", inline: <<-SHELL
+    sudo yes "" | ssh-keygen
+    sudo mkdir /var/log/borg/
+    sudo mkdir /opt/scripts
+    sudo echo " 10  *  *  *  * bash /opt/scripts/borgbackup.sh >/dev/null" >> /etc/crontab
+    SHELL
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo yum install -y epel-release borgbackup
+    sudo sed -re 's/^(PasswordAuthentication)([[:space:]]+)no/\1\2yes/' -i.`date -I` /etc/ssh/sshd_config
+    sudo service sshd restart
+  SHELL
+
+end
