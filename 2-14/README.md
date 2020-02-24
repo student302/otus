@@ -32,7 +32,7 @@ account required pam_time.so
 ssh night@127.0.0.1 -p 2222
 ```
 
-####pam_exec
+#### pam_exec
 
 1. Delete previous changes from /etc/pam.d/sshd
 2. Add this to /etc/pam.d/sshd
@@ -43,9 +43,9 @@ account required pam_exec.so /usr/local/bin/test_login.sh
 3. Copy script test_login.sh to /usr/local/bin/
 https://gist.github.com/dmitry-lyutenko/39bf8afe5d1f6fc2d48b09c325706495
 
-Based on the script completion code, the pam_exec module makes a decision. If 0 is returned all right and the user will be logged in, otherwise not.
+Based on the script completion code, the pam_exec module makes a decision. If 0 is returned it's ok and user will be logged in, otherwise not.
 
-####pam_script
+#### pam_script
 1. this module is already installed from Vagrantfile
 if not:
 ```bash
@@ -61,7 +61,7 @@ test_login.sh is the same script from pam_exec
 
 4. Test access to your VM
 
-####pam_cap
+#### pam_cap
 
 1. For using this module we need the nmap-ncat. It hsould be allready installed from Vagrantfile.
 if not:
@@ -106,7 +106,7 @@ Current: = cap_net_bind_service+i
 ```bash
 echo "Make Linux great again!" > /dev/tcp/127.0.0.7/80
 ```
-You should see the message in firs terminal
+You should see the message in first terminal
 
 ###root permission
 1. usermod day -G wheel
